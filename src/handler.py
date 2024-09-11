@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import os
 from datetime import datetime
 
 import boto3
@@ -12,8 +13,8 @@ s3_client = boto3.client('s3')
 
 
 def lambda_handler(event: dict, context: LambdaContext) -> dict[str, int]:
-    input_bucket = 'moto_example_input_dsm'
-    output_bucket = 'moto_example_output_dsm'
+    input_bucket = os.environ["INPUT_BUCKET"]
+    output_bucket = os.environ["OUTPUT_BUCKET"]
     mapped_event = EventType(**event)
     prefix = mapped_event.prefix
 
