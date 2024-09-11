@@ -1,0 +1,1 @@
+Example project to demo testing AWS lambda using `moto`
